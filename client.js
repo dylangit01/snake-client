@@ -6,16 +6,51 @@ const connect = function () {
     port: 50542,
   });
   // interpret incoming data as text
-  conn.setEncoding('utf8');
+	conn.setEncoding('utf8');
+	
+	 const up = 'Move: up';
+   const right = 'Move: right';
+   const down = 'Move: down';
+   const left = 'Move: left';
 
   conn.on('data', (data) => {
     console.log('Server says: ', data);
-  });
+	});
+	
+		setInterval(() => {
+    conn.write(`${left}`);
+		}, 50);
 
-	conn.on('connect', () => {
-		console.log('Successfully connected to game server!');
-    conn.write('Name: DYS');
-  });
+
+    // setInterval(() => {
+    //   conn.write(`${up}`);
+    // }, 500);
+    // setInterval(() => {
+    //   conn.write(`${right}`);
+    // }, 500);
+    // setInterval(() => {
+    //   conn.write(`${down}`);
+    // }, 500);
+	
+
+
+	
+	
+	// conn.on('connect', () => {
+  //   conn.write('Move: left');
+	// });
+	
+	// conn.on('connect', () => {
+  //   conn.write('Move: down');
+	// });
+	
+	// conn.on('connect', () => {
+  //   conn.write('Move: right');
+	// });
+	
+	// conn.on('connect', () => {
+  //   conn.write('Move: right');
+  // });
 
   return conn;
 };
