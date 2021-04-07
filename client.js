@@ -8,29 +8,24 @@ const connect = function () {
   // interpret incoming data as text
 	conn.setEncoding('utf8');
 	
-	 const up = 'Move: up';
-   const right = 'Move: right';
-   const down = 'Move: down';
-   const left = 'Move: left';
+	//  const up = 'Move: up';
+  //  const right = 'Move: right';
+  //  const down = 'Move: down';
+  //  const left = 'Move: left';
 
   conn.on('data', (data) => {
     console.log('Server says: ', data);
 	});
 
- 	setInterval(() => {
-    conn.write(`${left}`);
-		}, 200);
-		
-		
-    // setInterval(() => {
-    //   conn.write(`${up}`);
-    // }, 500);
-    // setInterval(() => {
-    //   conn.write(`${right}`);
-    // }, 500);
-    // setInterval(() => {
-    //   conn.write(`${down}`);
-    // }, 500);
+	conn.on('connect', () => {
+    conn.write('Name: DSK');
+  });
+
+ 	// setInterval(() => {
+  //   conn.write(`Move: up`);
+	// 	}, 100);
+
+
 
   return conn;
 };
