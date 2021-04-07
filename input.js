@@ -23,16 +23,16 @@ const handleUserInput = (conn) => {
 	const left = 'Move: left';
 	
 	process.stdin.on('data', (key) => {
-    if (key === '\u0077') {
+    if (key === 'w') {
      	conn.write(`${up}`);
 		}
-		if (key === '\u0073') {
+		if (key === 's') {
       conn.write(`${down}`);
 		}
-		if (key === '\u0061') {
+		if (key === 'a') {
       conn.write(`${left}`);
 		}
-		if (key === '\u0064') {
+		if (key === 'd') {
       conn.write(`${right}`);
 		};
     if (key === '\u0003') {
