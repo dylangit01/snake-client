@@ -16,12 +16,12 @@ const connect = function () {
   conn.on('data', (data) => {
     console.log('Server says: ', data);
 	});
-	
-		setInterval(() => {
+
+ 	setInterval(() => {
     conn.write(`${left}`);
-		}, 50);
-
-
+		}, 200);
+		
+		
     // setInterval(() => {
     //   conn.write(`${up}`);
     // }, 500);
@@ -31,26 +31,6 @@ const connect = function () {
     // setInterval(() => {
     //   conn.write(`${down}`);
     // }, 500);
-	
-
-
-	
-	
-	// conn.on('connect', () => {
-  //   conn.write('Move: left');
-	// });
-	
-	// conn.on('connect', () => {
-  //   conn.write('Move: down');
-	// });
-	
-	// conn.on('connect', () => {
-  //   conn.write('Move: right');
-	// });
-	
-	// conn.on('connect', () => {
-  //   conn.write('Move: right');
-  // });
 
   return conn;
 };
